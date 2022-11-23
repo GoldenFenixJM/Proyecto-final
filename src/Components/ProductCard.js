@@ -1,18 +1,16 @@
 import React from 'react'
 
-export const ProductCard = (props) => {
+import { useAuth0 } from '@auth0/auth0-react'
 
-  const {
-    id,
-    title,
-    description,
-    price,
-    thumbnail
-  } = props;
+export const ProductCard = ({item, handleClick}) => {
 
-  console.dir(props)
+  const {id,title,description,price,thumbnail} = item;
+
+
   const myDescription = description.length > 100 ? `${description.substring(0, 99)}...` : description;
 
+
+const { isAuthenticated } = useAuth0();
   return (
     <>
         <div class="card-deck">
@@ -24,10 +22,12 @@ export const ProductCard = (props) => {
             <p className='Price'>
               <small>Price: {price}</small>
             </p>
-            <button class="btn btn-primary">Add to cart</button>
+            {isAuthenticated ? ( <button className="btn btn-primary" onClick={() => handleClick(item)}>
+              Add to cart
+            </button>) : null}           
           </div>
         </div>
-        </div>
+      </div>
     </>
   )
 }
