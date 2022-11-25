@@ -9,10 +9,6 @@ import { Cart } from '../Components/Cart'
 import {useState} from 'react'
 
 
-
-
-
-
 export const EcommerceRoute = () => {
 	const [cart, setCart] = useState([]);
 
@@ -31,7 +27,6 @@ export const EcommerceRoute = () => {
 		}
 		arr[ind].amount += d;		
 		setCart([...arr]);
-		
 	  };
 
 
