@@ -7,6 +7,7 @@ import {Logout} from '../Components/LogOut'
 import { Profile } from '../Components/Profile'
 import { Cart } from '../Components/Cart'
 import {useState} from 'react'
+import { addDataCart } from '../Services'
 
 // Contiene las rutas de la aplicacion
 export const EcommerceRoute = () => {
@@ -16,6 +17,7 @@ export const EcommerceRoute = () => {
 	const handleClick = (item) => { // Funcion que se pasa a ProductCard para agregar productos al carrito
 	  if (cart.indexOf(item) !== -1) return;
 	  setCart([...cart, item]);
+	  addDataCart(item);
 	};
   
 	
