@@ -28,6 +28,11 @@ export const EcommerceRoute = () => {
 		if (arr[ind].amount === undefined) {
 			arr[ind].amount = 1;
 		}
+		// El valor no puede ser negativo
+		if (arr[ind].amount + d < 0) {
+			return;
+		}
+		
 		arr[ind].amount += d;		
 		setCart([...arr]);
 	  };
